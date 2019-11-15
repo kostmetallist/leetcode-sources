@@ -7,6 +7,7 @@ import java.util.Scanner;
 
 public class MaximalSquareFinder {
 
+    // TODO add possibility to work with rectangular matrices
     public static char[][] readMatrix(String path) {
 
         char[][] readResult = null;
@@ -72,13 +73,21 @@ public class MaximalSquareFinder {
         Scanner inputScanner = new Scanner(System.in);
         System.out.print("Enter path to file with matrix: ");
         String fileName = inputScanner.nextLine();
-        System.out.println(fileName);
+        System.out.println("Opening " + fileName);
 
         char[][] matrix = readMatrix(fileName);
+        if (matrix == null) {
+
+            System.err.println("Empty matrix can't be processed");
+            return;
+        }
+
+        int mRows = matrix.length, 
+            mCols = matrix[0].length;
 
         // <printing out input file>
-        for (int i = 0; i < matrix.length; ++i) {
-            for (int j = 0; j < matrix.length; ++j) {
+        for (int i = 0; i < mRows; ++i) {
+            for (int j = 0; j < mCols; ++j) {
                 System.out.print(matrix[i][j] + " ");
             }
 
