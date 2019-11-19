@@ -18,4 +18,4 @@ class Solution:
             if self.getDivisorsNum(i)%2:
                 on_bulbs_count += 1
 
-        return on_bulbs_counts
+        return on_bulbs_count
