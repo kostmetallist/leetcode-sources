@@ -13,6 +13,7 @@ class ListNode {
         ListNode curr = this;
         while (curr != null) {
             output += curr.val + " ";
+            curr = curr.next;
         }
         return output + ")";
     }
