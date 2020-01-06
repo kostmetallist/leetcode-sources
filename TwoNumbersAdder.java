@@ -21,7 +21,28 @@ class ListNode {
 public class TwoNumbersAdder {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         
-        return l1;
+        int carry_value = 0;
+        ListNode n1 = l1, n2 = l2;
+        ListNode output = null;
+        ListNode curr = output;
+        do {
+            if (curr == null) {
+                curr = new ListNode(0);
+                output = curr;
+            } else {
+                ListNode tmp = new ListNode(carry_value);
+                curr.next = tmp;
+                curr = tmp;
+            }
+
+            curr.val += n1.val + n2.val;
+            carry_value = curr.val / 10;
+            curr.val %= 10;
+            n1 = n1.next;
+            n2 = n2.next;
+        } while (n1 != null && n2 != null);
+
+        return output;
     }
 
     public static void main(String[] args) {
@@ -37,6 +58,10 @@ public class TwoNumbersAdder {
         ListNode l2_2 = new ListNode(4);
         l2.next = l2_1;
         l2_1.next = l2_2;
-        tna.addTwoNumbers(l1, l2);
+
+        System.out.println(l1);
+        System.out.println(l2);
+        ListNode result = tna.addTwoNumbers(l1, l2);
+        System.out.println(result);
     }
 }
