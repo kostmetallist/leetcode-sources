@@ -65,11 +65,11 @@ public class TwoNumbersAdder {
                 n1 = n1.next;
             }
 
-        } else {
-            if (carry_value != 0) {
-                ListNode tmp = new ListNode(carry_value);
-                curr.next = tmp;
-            }
+        }
+
+        if (carry_value != 0) {
+            ListNode tmp = new ListNode(carry_value);
+            curr.next = tmp;
         }
 
         return output;
@@ -91,9 +91,20 @@ public class TwoNumbersAdder {
         l2_1.next = l2_2;
         l2_2.next = l2_3;
 
-        System.out.println(l1);
-        System.out.println(l2);
-        ListNode result = tna.addTwoNumbers(l1, l2);
+        ListNode l3 = new ListNode(9);
+        ListNode l3_1 = new ListNode(9);
+        l3.next = l3_1;
+
+        ListNode l4 = new ListNode(1);
+
+        // System.out.println(l1);
+        // System.out.println(l2);
+        // ListNode result = tna.addTwoNumbers(l1, l2);
+        // System.out.println(result);
+
+        System.out.println(l3);
+        System.out.println(l4);
+        ListNode result = tna.addTwoNumbers(l3, l4);
         System.out.println(result);
     }
 }
