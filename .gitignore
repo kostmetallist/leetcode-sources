@@ -1,3 +1,120 @@
-*.txt
-*.class
+## GENERAL ####################
+
+# Executables/tool outputs
+*.app
+*.exe
+*.hex
 *.out
+
+# Outputs
+*.log
+*.txt
+
+
+## C ##########################
+
+# Object files
+*.elf
+*.ko
+*.o
+*.obj
+
+# Libraries
+*.a
+*.la
+*.lib
+*.lo
+
+# Linker output
+*.ilk
+*.map
+*.exp
+
+# Debug files
+*.dSYM/
+*.idb
+*.pdb
+
+
+## GOLANG #####################
+
+# Binaries for programs and plugins
+*.dylib
+
+# Test binaries, built with `go test -c`
+*.test
+
+
+## JAVA  ######################
+
+# Compiled class file
+*.class
+
+# Package Files
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+
+## PYTHON #####################
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+cover/
+
+# Translations
+*.mo
+*.pot
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IPython
+profile_default/
+ipython_config.py
+
+# PEP 582; used by e.g. github.com/David-OConnor/pyflow
+__pypackages__/
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
+# pytype static type analyzer
+.pytype/
+
+# Cython debug symbols
+cython_debug/
