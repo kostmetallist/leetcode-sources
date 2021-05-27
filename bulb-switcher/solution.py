@@ -35,6 +35,3 @@ class Solution:
             on_bulbs_count = len(list(squares))
 
         return on_bulbs_count
-
-sol = Solution()
-print(sol.bulbSwitch(99999))

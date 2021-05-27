@@ -1,7 +1,5 @@
-# Given n non-negative integers representing an elevation map where the width 
-# of each bar is 1, compute how much water it is able to trap after raining.
-
 from typing import List
+
 
 class Solution:
     def check_ability_to_store(self, height: List[int]) -> bool:
@@ -28,9 +26,3 @@ class Solution:
             result += min(left_max[i], right_max[i]) - height[i]
 
         return result
-
-
-sol = Solution()
-print(sol.trap([0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1]))
-print(sol.trap([1, 1, 1, 1]))
-print(sol.trap([1, 0, 0, 1]))
