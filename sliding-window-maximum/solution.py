@@ -1,4 +1,5 @@
 from collections import deque
+from dataclasses import dataclass
 from typing import List
 
 # Window position                Max
@@ -11,32 +12,41 @@ from typing import List
 #  1  3  -1  -3  2 [1  6  7]      7
 
 
+@dataclass
+class Candidate:
+    value: int
+    index: int
+
+
 class Solution:
+
+    def add_candidate(self, candidates: deque[Candidate], insertee: Candidate, cut_index: int = 0):
+
+        while candidates and candidates[-1].value < insertee.value:
+            candidates.pop()
+        
+        if candidates and candidates[0].index < cut_index:
+            candidates.popleft()
+
+        candidates.append(insertee)
+
     def maxSlidingWindow(self, nums: List[int], k: int) -> List[int]:
 
         index = 0
-        window = deque()
-        window_max = nums[0]
+        candidates = deque()
+        result = []
 
         while index < k:
-            window_max = max(window_max, nums[index])
-            window.append(nums[index])
+            self.add_candidate(candidates, Candidate(nums[index], index))
+            # print(f'{index=}; {' '.join(str(x.value) for x in candidates)}')
             index += 1
 
-        result = [window_max]
+        result.append(candidates[0].value)
 
         while index < len(nums):
-
-            next = nums[index]
-            last = window.popleft()
-            window.append(next)
-
-            if next > window_max:
-                window_max = next
-            elif last >= window_max:
-                window_max = max(window)
-
-            result.append(window_max)
+            self.add_candidate(candidates, Candidate(nums[index], index), index - k + 1)
+            # print(f'{index=}; {' '.join(str(x.value) for x in candidates)}')
+            result.append(candidates[0].value)
             index += 1
 
         return result
